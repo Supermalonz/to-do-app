@@ -17,7 +17,7 @@
 
   <div>
     <%= form.label :status %><br>
-    <%= form.check_box :status %>
+    <%= form.select :status, options_for_select([['done', 'done'], ['todo', 'todo'], ['doing', 'doing']]) %>
   </div>
 
   <div>

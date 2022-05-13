@@ -4,11 +4,14 @@ class TasksController < ApplicationController
 
   def index
     @tasks = current_user.tasks
-    @true_tasks = @tasks.where(status: true)
-    @false_tasks = @tasks.where(status: false)
+    @true_tasks = @tasks.done
+    @false_tasks = @tasks.todo
+    @doing_task = @tasks.doing
   end
 
-  def show; end
+  def show
+    @task = current_user.tasks.find(params[:id])
+  end
 
   def new
     @task = Task.new
@@ -19,7 +22,8 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path
     else
-      render :new
+      flash[:error] = @task.errors.full_messages
+      redirect_to new_task_path
     end
   end
 
@@ -29,7 +33,8 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to tasks_path
     else
-      render :edit
+      flash[:error] = @task.errors.full_messages
+      redirect_to edit_task_path
     end
   end
 
