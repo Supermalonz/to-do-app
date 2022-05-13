@@ -1,1 +1,32 @@
-Hello World!
+<h1>My tasks</h1>
+
+<%= link_to "New Task", new_task_path %>
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete%>
+
+<h2>True Tasks</h2>
+<ul>
+  <% @true_tasks.each do |task| %>
+    <li>
+      <%= task.title %>
+      <%= task.body %>
+      <%= link_to "Edit", edit_task_path(task) %>
+      <%= link_to "Destroy", task_path(task),
+                  method: :delete,
+                  data: { confirm: "Confirm ?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>False Tasks</h2>
+<ul>
+  <% @false_tasks.each do |task| %>
+    <li>
+      <%= task.title %>
+      <%= task.body %>
+      <%= link_to "Edit", edit_task_path(task) %>
+      <%= link_to "Destroy", task_path(task),
+                  method: :delete,
+                  data: { confirm: "Confirm ?" } %>
+    </li>
+  <% end %>
+</ul>
