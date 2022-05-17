@@ -7,13 +7,11 @@ RSpec.describe TasksController, type: :controller do
     subject { get :index}
 
     context 'does not sign in' do
-      it 'redirecto to sign in page' do
-        is_expected.to redirect_to 
-      end
+      it is_expected_to redirect_to new_user_session_path
     end
-    
+
     context 'does sign in' do
-      is_expected.to redirect_to  
+      it is_expected_to redirect_to tasks_path
     end
   end
 end
