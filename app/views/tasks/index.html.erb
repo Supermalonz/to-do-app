@@ -1,46 +1,54 @@
-<h1>My tasks</h1>
-
-<%= link_to "New Task", new_task_path %>
+<div class="container">
+  <h1>My tasks</h1>
+  <%= current_user.email %>
+  <%= link_to "New Task", new_task_path %>
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete%>
+</div>
 
-<h2>Done Tasks</h2>
-<ul>
-  <% @true_tasks.each do |task| %>
-    <li>
-      <%= task.title %>
-      <%= task.body %>
-      <%= link_to "Edit", edit_task_path(task) %>
-      <%= link_to "Destroy", task_path(task),
-                  method: :delete,
-                  data: { confirm: "Confirm ?" } %>
-    </li>
-  <% end %>
-</ul>
+<div class="container p-3 my-3 border">
+  <h2>Doing Tasks</h2>
+  <ul>
+    <% @doing_task.each do |task| %>
+      <li>
+        <%= task.title %>
+        <%= task.body %>
+        <%= link_to "Edit", edit_task_path(task) %>
+        <%= link_to "Destroy", task_path(task),
+                    method: :delete,
+                    data: { confirm: "Confirm ?" } %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
-<h2>Doing Tasks</h2>
-<ul>
-  <% @doing_task.each do |task| %>
-    <li>
-      <%= task.title %>
-      <%= task.body %>
-      <%= link_to "Edit", edit_task_path(task) %>
-      <%= link_to "Destroy", task_path(task),
-                  method: :delete,
-                  data: { confirm: "Confirm ?" } %>
-    </li>
-  <% end %>
-</ul>
+<div class="container p-3 my-3 border">
+  <h2>Todo Tasks</h2>
+  <ul>
+    <% @false_tasks.each do |task| %>
+      <li>
+        <%= task.title %>
+        <%= task.body %>
+        <%= link_to "Edit", edit_task_path(task) %>
+        <%= link_to "Destroy", task_path(task),
+                    method: :delete,
+                    data: { confirm: "Confirm ?" } %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
-<h2>Todo Tasks</h2>
-<ul>
-  <% @false_tasks.each do |task| %>
-    <li>
-      <%= task.title %>
-      <%= task.body %>
-      <%= link_to "Edit", edit_task_path(task) %>
-      <%= link_to "Destroy", task_path(task),
-                  method: :delete,
-                  data: { confirm: "Confirm ?" } %>
-    </li>
-  <% end %>
-</ul>
+<div class="container p-3 my-3 border">
+  <h2>Done Tasks</h2>
+  <ul>
+    <% @true_tasks.each do |task| %>
+      <li>
+        <%= task.title %>
+        <%= task.body %>
+        <%= link_to "Edit", edit_task_path(task) %>
+        <%= link_to "Destroy", task_path(task),
+                    method: :delete,
+                    data: { confirm: "Confirm ?" } %>
+      </li>
+    <% end %>
+  </ul>
+</div>
