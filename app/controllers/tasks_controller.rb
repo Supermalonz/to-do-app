@@ -1,12 +1,11 @@
 # frozen_string_literal: true
+
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
     @tasks = current_user.tasks
-    @true_tasks = @tasks.done
-    @false_tasks = @tasks.todo
-    @doing_task = @tasks.doing
+    @foo = 'bar'
   end
 
   def show
