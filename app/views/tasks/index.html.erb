@@ -8,7 +8,7 @@
 <div class="container p-3 my-3 border">
   <h2>Doing Tasks</h2>
   <ul>
-    <% @doing_task.each do |task| %>
+    <% @tasks.doing.each do |task| %>
       <li>
         <%= task.title %>
         <%= task.body %>
@@ -24,7 +24,7 @@
 <div class="container p-3 my-3 border">
   <h2>Todo Tasks</h2>
   <ul>
-    <% @false_tasks.each do |task| %>
+    <% @tasks.todo.each do |task| %>
       <li>
         <%= task.title %>
         <%= task.body %>
@@ -40,7 +40,7 @@
 <div class="container p-3 my-3 border">
   <h2>Done Tasks</h2>
   <ul>
-    <% @true_tasks.each do |task| %>
+    <% @tasks.done.each do |task| %>
       <li>
         <%= task.title %>
         <%= task.body %>
