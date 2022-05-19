@@ -5,7 +5,6 @@ class TasksController < ApplicationController
 
   def index
     @tasks = current_user.tasks
-    @foo = 'bar'
   end
 
   def show
